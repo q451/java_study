@@ -1,0 +1,14 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--配置mapper-->
+<mapper namespace="MybatisProject.src.mapper.UserAccountMapper">
+    <!--
+        查询USER里的所有记录
+        resultType:配置查询的返回结果类型, 应当是实体类的相对路径->包名.类名
+    -->
+    <select id="getAllUsers" resultType="MybatisProject.src.model.UserAccount">
+        select userid,password from user_account
+    </select>
+</mapper>

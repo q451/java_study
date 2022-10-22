@@ -1,0 +1,30 @@
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!--引入外部的db.properties文件-->
+    <properties resource="MybatisProject/resource/mappers/db.properties"/>
+    <!--配置连接数据库的开发环境environments
+        environments中可配置多组environment, 每个environment表示一种数据库的连接配置
+        default的取值是id的值, 表示默认使用该环境
+    -->
+    <environments default="mysql">
+        <!--MySQL-->
+        <environment id="mysql">
+            <!--配置事务管理，委托JDBC负责管理事务-->
+            <transactionManager type="JDBC"/>
+            <!--配置数据源，使用POOLED数据源，作用是创建数据库链接-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${user}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--引入外部接口映射文件-->
+    <mappers>
+        <mapper resource="MybatisProject/resource/mappers/UserAccountMapper.xml"/>
+    </mappers>
+</configuration>
